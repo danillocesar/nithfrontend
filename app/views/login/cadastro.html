@@ -1,0 +1,51 @@
+<md-dialog aria-label="Cadastro" class="cadastroDialog">
+  <form ng-cloak name="formCadastro" ng-submit="cadastrar()">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Cadastro</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon class="material-icons">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container class="md-block" md-no-float>
+            <label>Nome</label>
+            <input ng-model="user.name" required="" novalidate name="name" type="text">
+                <div ng-messages="formCadastro.name.$error" >
+                <div ng-message="required">Nome é obrigatório.</div>
+                </div>
+        </md-input-container>
+        <md-input-container class="md-block" md-no-float>
+            <label>Email</label>
+            <input ng-model="user.email" required="" novalidate name="email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/i'  type="email">
+                <div ng-messages="formCadastro.email.$error" ng-messages-multiple>
+                <div ng-message="required">Email é obrigatório.</div>
+                <div ng-message="pattern">Email inválido.</div>
+                </div>
+        </md-input-container>
+        <md-input-container class="md-block" md-no-float>
+            <label>Senha</label>
+            <input ng-model="user.password" required="" novalidate name="password" type="password">
+                <div ng-messages="formCadastro.password.$error" >
+                <div ng-message="required">Senha é obrigatório.</div>
+                </div>
+        </md-input-container>
+        <md-input-container class="md-block" md-no-float>
+            <label>WhatsApp</label>
+            <input ng-model="user.whatsapp" id="whatsappinput" ui-mask="(99) 99999-9999" ui-mask-placeholder ui-mask-placeholder-char="space" required="" novalidate name="whatsapp" type="text">
+                <div ng-messages="formCadastro.whatsapp.$error" >
+                <div ng-message="required">WhatsApp é obrigatório.</div>
+                </div>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button type="submit" md-no-ink class="md-raised md-primary">Finalizar</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

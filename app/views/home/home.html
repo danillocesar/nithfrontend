@@ -1,0 +1,33 @@
+
+<md-toolbar layout="row" style="position: fixed; background: #2129A3" layout="row" layout-align="end center">
+    <img src="shared/imgs/logonith.png" style="background: white;height: 70px;width: 180px;">
+    <div class="md-toolbar-tools">
+	            <md-button  hide-gt-sm aria-label="Menu" class="cs-button" ng-click="toggleSideNav()">
+	                <i class="material-icons">menu</i>
+	            </md-button>
+	            <h2 flex md-truncate>Vídeos</h2>
+	        <section layout-align="end center" class="navbar-userinfo">
+				<md-button ng-click="logout()">
+				<md-tooltip md-direction="bottom">Sair</md-tooltip>
+					<md-icon class="material-icons">lock</md-icon>
+				</md-button>
+	        </section>
+        </div>
+</md-toolbar>
+<div layout="row" flex  layout-wrap style="margin-top: 80px;">
+    <md-card class="video-card" ng-repeat="video in videos" flex="30">
+        <img src="http://img.youtube.com/vi/{{video.viId}}/mqdefault.jpg" ng-click="openVideo(video)" class="md-card-image" alt="{{video.name}}">
+        <md-card-actions layout="row" layout-align="center">
+            <h2>{{video.name}}</h2>     
+        </md-card-actions>
+    </md-card>
+
+</div>
+<style>
+md-dialog.md-dialog-fullscreen {
+    min-height: 90%!important;
+    min-width: 90%!important;
+    border-radius: 0;
+}
+
+</style>

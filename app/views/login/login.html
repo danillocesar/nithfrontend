@@ -1,0 +1,81 @@
+<div layout="row" style="width: 100%;">
+	<section flex-gt-sm="40" flex-sm="50" flex-gt-md="50" flex="100" layout="row" class="login-page" style="width: 100%; margin: auto;height: 500px;">
+		<div class="login-box login-sidebar" flex="100">
+			<div class="white-box">
+				<form name="formlogin" ng-submit="login()">
+					<div style="width: 240px;margin: 50px auto;"><img src="shared/imgs/logonith.png" style="width: 240px;"></div>
+					<md-input-container class="md-block" md-no-float>
+						<input ng-model="username" placeholder="Email" required="" novalidate name="username" ng-pattern='/^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/i'  type="email">
+                          <div ng-messages="formlogin.username.$error" ng-messages-multiple>
+                            <div ng-message="required">Email é obrigatório.</div>
+                            <div ng-message="pattern">Email inválido.</div>
+                          </div>
+			        </md-input-container>
+			        <md-input-container class="md-block" md-no-float >
+			          	<input ng-model="password" type="password" placeholder="Senha" required="" name="senha">
+			          	<div ng-messages="formlogin.senha.$error">
+					        <p ng-message="required">Senha é obrigatório.</p>
+					  	</div>
+			        </md-input-container>
+			        <md-button type="submit" md-no-ink class="md-raised md-primary full-width-btn" >Entrar</md-button>
+				</form>
+				<p style="text-align: center;">Não possui uma conta? <a href="#" ng-click="openCadastro()"><b>Cadastre-se</b></a></p>
+			</div>
+		</div>
+	</section>
+</div>
+<style>
+body{
+	color: #686868;
+}
+a {
+    color: #eb565a;
+    text-decoration: none;
+}
+.md-button.full-width-btn{
+    margin: 5px 0px!important;
+    width: 100%!important;
+    height: 45px!important;
+	/* #e41f24 */
+}
+md-input-container{
+    max-height: 70px!important;
+    min-height: 70px!important;
+}
+md-input-container .md-input-message-animation, md-input-container .md-char-counter {
+	line-height: inherit!important;
+}
+md-dialog .md-actions, md-dialog md-dialog-actions{
+	padding-right: 8px!important;
+    padding-left: 8px!important;
+}
+.login-page{
+    height: 100%;
+	-webkit-animation: myfirst 0.2s ; /* Chrome, Safari, Opera */
+    animation: myfirst 0.2s ;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes myfirst {
+    from {opacity: 0.2;}
+    to {opacity: 1;}
+  }
+
+  /* Standard syntax */
+  @keyframes myfirst {
+    from {opacity: 0.2;}
+    to {opacity: 1;}
+  }.login-sidebar {
+    left: 0;
+    margin-top: 0;
+    height: 100%;
+}
+.login-box {
+    background: #fff;
+}
+.white-box {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+</style>
